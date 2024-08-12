@@ -1,6 +1,6 @@
-from django.shortcuts import render
-from django.http import HttpResponse,HttpResponseNotFound,HttpResponseRedirect
-from django.urls import reverse
+from django.shortcuts import render # type: ignore
+from django.http import HttpResponse,HttpResponseNotFound,HttpResponseRedirect # type: ignore
+from django.urls import reverse # type: ignore
 # Create your views here.
 
 week_schedule = {
