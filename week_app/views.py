@@ -14,7 +14,7 @@ week_schedule = {
 }
 
 def week(request,day):
-    days = list[week_schedule.keys()]
+    days = list(week_schedule.keys())
 
     if(day>len(week_schedule)):
         return HttpResponseNotFound('Enter 1-7')
