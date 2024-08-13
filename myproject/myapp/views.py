@@ -31,4 +31,3 @@ def montly_details(request,month):
         return HttpResponse(month_text)
     except:
         return HttpResponseNotFound('This page not found')
-    

@@ -9,3 +9,7 @@ class author(models.Model):
     rating = models.IntegerField(validators=[
         MaxValueValidator(5),MinValueValidator(2)
     ],null=True)
+
+    def __str__(self):
+        return f' {self.first_name}  {self.last_name} {self.age} {self.city} {self.rating} '
+ 

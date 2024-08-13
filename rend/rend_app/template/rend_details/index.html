@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block page_title %} Month List{% endblock %}
+{% block content %}
+
+
+    <ul>
+        {% for mon in month %}
+        <li><a href='{% url "rend_app" mon %}'>{{ mon }}</li>
+        <!-- <li><a href='rend_app/{{ mon }}'>{{ mon }} </li> -->
+        {% endfor %}
+    </ul>
+
+{% endblock %}

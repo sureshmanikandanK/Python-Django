@@ -1,5 +1,5 @@
 """
-URL configuration for mysite project.
+URL configuration for rend project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -19,6 +19,5 @@ from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('Webpage/', include('mysite1.urls')),
-    path('Author/', include('author.urls')),
+    path('rend_app/',include('rend_app.urls')),
 ]
