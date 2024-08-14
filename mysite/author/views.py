@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.http import Http404
+from django.shortcuts import render # type: ignore
+from django.http import Http404 # type: ignore
 from .models import author
 
 def author_list(request):
