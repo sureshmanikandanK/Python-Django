@@ -3,13 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Details</title>
 </head>
 <body>
-    <ul>
-    {% for name in authors %}
-    <li>{{ name.first_name}}</li>
-    {% endfor %}
-</ul>
+    <h1>{{ author.first_name }} {{ author.last_name }}</h1>
 </body>
 </html>
