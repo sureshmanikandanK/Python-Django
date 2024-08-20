@@ -1,41 +1,34 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Form Page</title>
+    <link rel='stylesheet' href="{% static 'file.css' %}">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-
-    
     <center>
-        <h2>Forms </h2>
-        <form  method="Post">
+        <h2>Forms</h2>
+        <form action="" method="post" novalidate>
             {% csrf_token %}
-            {{ formss.user_name.label_tag }}
-            {{ formss.user_name }}
-            {% if formss.user_name.errors %}
-                <p>{{ formss.user_name.errors.0 }}</p>
-            {% endif %}
             
+            {% comment %} {{ form.user_name.label_tag }}
+            {{ form.user_name }}  {% endcomment %}
+            
+            {% comment %} {% if form.user_name.errors %}
+                <p style="color: red;">{{ form.user_name.errors }}</p>
+            {% endif %}  {% endcomment %}
+            {% for field in form %}
+            {{ field.label }}<br><br><br>
+            {{ field }}<br><br><br>
+            {{ field.errors }}
+            {% endfor %} 
 
-            {% comment %} <label for="name">Name : </label> {% endcomment %}
-            {% comment %} <input id='username'type="text" name= "username"><br><br><br> {% endcomment %}
-
-            {% comment %} <label for="phone">Phone : </label>
-            <input type="text" name= "phone"><br><br><br>
-    
-            <label for="address">Address : </label>
-            <input type="text" name= "address"><br><br><br>
-    
-            <label for="course">Course : </label>
-            <input type="text" name= "course"><br><br><br> {% endcomment %}
-            
-            <button type="Submit">Send</button>
-            
-    
+             
+            <button type="submit">Send</button>
         </form>
     </center>
 </body>
 </html>
-
