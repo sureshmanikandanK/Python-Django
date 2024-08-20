@@ -12,12 +12,15 @@
         <h2>Forms </h2>
         <form  method="Post">
             {% csrf_token %}
-            {% if haserror %}
-<p>You have entered empty value</p>
+            {{ formss.user_name.label_tag }}
+            {{ formss.user_name }}
+            {% if formss.user_name.errors %}
+                <p>{{ formss.user_name.errors.0 }}</p>
             {% endif %}
-            {{ formss }}
-            <label for="name">Name : </label>
-            <input id='username'type="text" name= "username"><br><br><br>
+            
+
+            {% comment %} <label for="name">Name : </label> {% endcomment %}
+            {% comment %} <input id='username'type="text" name= "username"><br><br><br> {% endcomment %}
 
             {% comment %} <label for="phone">Phone : </label>
             <input type="text" name= "phone"><br><br><br>
