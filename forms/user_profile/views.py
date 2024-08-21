@@ -8,12 +8,14 @@ def forms_page(request):
         form = forms_page_class(request.POST)
         if form.is_valid():
             review = Review(
-                user_name = form.cleaned_data['user_name'],
-                text = form.cleaned_data['text'],
-                rating = form.cleaned_data['rating'],
+                user_name=form.cleaned_data['user_name'],
+                text=form.cleaned_data['text'],
+                rating=form.cleaned_data['rating'],
             )
             review.save()
             return HttpResponseRedirect('/user/Thanks')
+        else:
+            return render(request, 'user_profile/forms.html', {'form': form})
     else:
         form = forms_page_class()
         return render(request, 'user_profile/forms.html', {'form': form})
