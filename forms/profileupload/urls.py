@@ -1,7 +1,7 @@
 from django.urls import path
-from . import views
-
+from .views import CreateProfileView
 urlpatterns = [
-    path('', views.index, name='index'),  # Example path
-    # Add more paths as needed
+    
+    path('',CreateProfileView.as_view(),name = 'UserCreate'),
+
 ]
