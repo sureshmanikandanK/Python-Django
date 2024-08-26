@@ -1,0 +1,118 @@
+/* Ensure the card image takes full width and height for consistency */
+.card-img-top {
+  width: 300px;
+  height: 300px; /* Adjust as needed */
+  object-fit: cover; /* Ensures image covers area without distortion */
+}
+
+/* Ensure card titles are consistent in size */
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+/* Ensure card text is consistent and limited in size */
+.card-text {
+  font-size: 0.875rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Optional: Style for the "More..." button */
+.btn-primary {
+  background-color: #198754;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.btn-primary:hover {
+  background-color: #198754;
+  color: #fff;
+}
+
+/* Styling for the section */
+.section {
+  background-color: white; /* Light background color for contrast */
+  border-bottom: 2px solid #e9ecef; /* Optional bottom border for separation */
+}
+
+.section h1 {
+  font-size: 2.5rem; /* Adjust font size as needed */
+  font-weight: 700; /* Bold text */
+  color: #343a40; /* Dark color for better readability */
+  margin: 0; /* Remove default margins */
+}
+
+/* Optional: Add padding for better spacing */
+.py-5 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+/* Custom styles for image and text alignment */
+.card-image {
+    max-width: 400px; /* Ensure image is responsive */
+    height: 400px; /* Maintain aspect ratio */
+}
+
+.card-title {
+    font-size: 2rem; 
+    font-weight: 700; 
+}
+
+.card-description {
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+/* Style for card hover effect */
+.card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.05); /* Slightly scales the card */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adds a stronger shadow */
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* 1:1 Aspect Ratio (Square) */
+  overflow: hidden;
+}
+
+.image-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the container while maintaining its aspect ratio */
+}
+
+.introduction {
+  flex: 1;
+  text-align: center;
+  justify-content: center; 
+}
+
+.introduction p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin: 0; 
+}
+
+.photo {
+  flex: 0 0 250px; 
+}
+
+.photo img {
+  max-width: 100%; 
+  width: 500px;
+  height: 500px; 
+  border-radius: 8px;
+}
