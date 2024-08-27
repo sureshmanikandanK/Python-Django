@@ -2,29 +2,31 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.views import View
 from django.urls import reverse
-from .models import ImgAppDb
+from .models import ImgAppDb,Comment
 from .forms import post_form
+from django.views.generic.edit import CreateView # type: ignore
+from django.views.generic import ListView
 
-class post_page_view(View):
-    def get(self, request):
-        form = post_form()
-        return render(request, 'imgapp/forms.html', {'form': form})
+# class post_page_view(View):
+#     def get(self, request):
+#         form = post_form()
+#         return render(request, 'imgapp/forms.html', {'form': form})
 
-    def post(self, request):
-        submittedform = post_form(request.POST, request.FILES)
+#     def post(self, request):
+#         submittedform = post_form(request.POST, request.FILES)
 
-        if submittedform.is_valid():
-            connect = ImgAppDb(
-                card_title=submittedform.cleaned_data['card_title'],
-                card_description=submittedform.cleaned_data['card_description'],
-                image=submittedform.cleaned_data['Image']  
-            )
-            connect.save()
-            return HttpResponseRedirect(reverse('post_page_view'))  
-        else:
-            print(submittedform.errors)  
+#         if submittedform.is_valid():
+#             connect = ImgAppDb(
+#                 card_title=submittedform.cleaned_data['card_title'],
+#                 card_description=submittedform.cleaned_data['card_description'],
+#                 image=submittedform.cleaned_data['Image']  
+#             )
+#             connect.save()
+#             return HttpResponseRedirect(reverse('post_page_view'))  
+#         else:
+#             print(submittedform.errors)  
 
-        return render(request, 'imgapp/forms.html', {'form': submittedform})
+#         return render(request, 'imgapp/forms.html', {'form': submittedform})
 
 
 def land_page(request):
@@ -46,3 +48,15 @@ def About_us(request):
 
 def forms_page(request):
     return render(request, 'imgapp/forms.html')
+
+class commentCreateView(CreateView):
+    model = Comment
+    template_name = "imgapp/comment.html"
+    fields = '__all__'
+    success_url ='cards'
+
+class post_page_view(CreateView):
+    model = ImgAppDb
+    template_name = "imgapp/forms.html"
+    fields = ['card_title', 'image', 'card_description', 'author', 'tags']
+    success_url ='Add_Cards'

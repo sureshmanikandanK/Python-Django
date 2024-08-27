@@ -13,9 +13,12 @@
               <p>{{ card.card_description }}</p>
               <p>{{ card.date }}</p>
               <p>{{ card.time }}</p>
+              
             </div>
         </div>
     </div>
   </center>
-
+<center>
+  <a href="{% url 'commentCreateView' %}">Comments</a>
+</center>
 {% endblock %}

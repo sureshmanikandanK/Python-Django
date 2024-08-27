@@ -6,5 +6,3 @@ class AuthorSerializer(serializers.ModelSerializer):
         model = Author
         fields = ['id','name','city','age']
         read_only_fields = ['id']
- 
- 
