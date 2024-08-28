@@ -14,4 +14,5 @@ class bookmodel(models.Model):
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
 
     def __str__(self):
+        return self.title
         

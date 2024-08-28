@@ -47,5 +47,6 @@ urlpatterns = [
    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
    path("api/author/",include('author_app.urls')),
+   path("api/book/",include('book_app.urls')),
    
 ]
