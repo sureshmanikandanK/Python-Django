@@ -140,3 +140,8 @@ SWAGGER_SETTINGS = {
         }
     },
 }
+
+
+import os
+MEDIA_ROOT = os.path.join(BASE_DIR,'uploads')
+MEDIA_URL = '/uploads/'
