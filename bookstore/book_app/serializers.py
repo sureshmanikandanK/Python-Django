@@ -4,8 +4,8 @@ from author_app.serializers import AuthorSerializer
 
 class BookSerializer(serializers.ModelSerializer):
     author_id = serializers.IntegerField(write_only = True)
-    # author = AuthorSerializer(read_only = True)
+    author = AuthorSerializer(read_only = True)
     class Meta:
         model = bookmodel
-        fields = ['id','title','rating','author_id']
+        fields = ['id','title','rating','author_id','author']
         read_only_fields=['id']
