@@ -4,7 +4,7 @@ from .models import Dish
 class DishSerializer(serializers.ModelSerializer):
     class Meta:
         model = Dish
-        fields = ['id','name','price']
+        fields = ['id','name','price','category']
         read_only_fields = ['id']
 
 class DishDetailSerializer(serializers.ModelSerializer):
