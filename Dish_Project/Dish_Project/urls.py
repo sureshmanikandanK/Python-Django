@@ -50,5 +50,6 @@ urlpatterns = [
    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
    path("api/dish/",include('dish_app.urls')),
    path("api/category/",include('category_app.urls')),
+   path("api/user/",include('user_app.urls')),
    
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

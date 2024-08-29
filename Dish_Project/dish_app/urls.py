@@ -3,7 +3,7 @@ from rest_framework.routers import DefaultRouter
 from .views import DishViewset
  
 router = DefaultRouter()
-router.register('', DishViewset, basename='author')
+router.register('', DishViewset, basename='dish')
 app_name ='dish_app'
  
 urlpatterns=[
