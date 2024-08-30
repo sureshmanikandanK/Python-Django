@@ -7,28 +7,6 @@ from .forms import post_form
 from django.views.generic.edit import CreateView # type: ignore
 from django.views.generic import ListView
 
-# class post_page_view(View):
-#     def get(self, request):
-#         form = post_form()
-#         return render(request, 'imgapp/forms.html', {'form': form})
-
-#     def post(self, request):
-#         submittedform = post_form(request.POST, request.FILES)
-
-#         if submittedform.is_valid():
-#             connect = ImgAppDb(
-#                 card_title=submittedform.cleaned_data['card_title'],
-#                 card_description=submittedform.cleaned_data['card_description'],
-#                 image=submittedform.cleaned_data['Image']  
-#             )
-#             connect.save()
-#             return HttpResponseRedirect(reverse('post_page_view'))  
-#         else:
-#             print(submittedform.errors)  
-
-#         return render(request, 'imgapp/forms.html', {'form': submittedform})
-
-
 def land_page(request):
     cards_query = ImgAppDb.objects.all().order_by('-id')[:3]
     section_name = 'Suresh'
@@ -36,7 +14,7 @@ def land_page(request):
 
 def second_page(request):
     cards_query = ImgAppDb.objects.all()
-    return render(request, 'includes/cards.html', {'cards': cards_query, 'showall': True})
+    return render(request, 'imgapp/cards.html', {'cards': cards_query, 'showall': True})
 
 def detail_page(request, slug):
     card = ImgAppDb.objects.filter(slug=slug).first()
@@ -62,3 +40,24 @@ class post_page_view(CreateView):
     fields = ['card_title', 'image', 'card_description', 'author', 'tags']
     success_url ='Add_Cards'
 
+
+# class post_page_view(View):
+#     def get(self, request):
+#         form = post_form()
+#         return render(request, 'imgapp/forms.html', {'form': form})
+
+#     def post(self, request):
+#         submittedform = post_form(request.POST, request.FILES)
+
+#         if submittedform.is_valid():
+#             connect = ImgAppDb(
+#                 card_title=submittedform.cleaned_data['card_title'],
+#                 card_description=submittedform.cleaned_data['card_description'],
+#                 image=submittedform.cleaned_data['Image']  
+#             )
+#             connect.save()
+#             return HttpResponseRedirect(reverse('post_page_view'))  
+#         else:
+#             print(submittedform.errors)  
+
+#         return render(request, 'imgapp/forms.html', {'form': submittedform})
