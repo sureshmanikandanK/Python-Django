@@ -6,8 +6,8 @@ from django.shortcuts import render
 from .serializers import UserSerializer, RegisterSerializer
 from rest_framework.response import Response
 from rest_framework import generics,status
-# from rest_framework import permissions
-# from rest_framework_simplejwt.authentication import JWTAuthentication
+from rest_framework import permissions
+from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.views import APIView
 from drf_yasg.utils import swagger_auto_schema
  
@@ -15,7 +15,7 @@ from drf_yasg.utils import swagger_auto_schema
 # @extend_schema(auth=[])
 class RegisterUserAPIView(APIView):
     """Create User for authentication."""
-    # permission_classes = [permissions.AllowAny]
+    permission_classes = [permissions.AllowAny]
     serializer_class = RegisterSerializer
  
     @swagger_auto_schema(
@@ -44,8 +44,8 @@ class RegisterUserAPIView(APIView):
  
 class ManageUserView(generics.RetrieveUpdateAPIView):
     serializer_class = UserSerializer
-    # authentication_classes = [JWTAuthentication]
-    # permission_classes = [permissions.IsAuthenticated]
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [permissions.IsAuthenticated]
  
     def get_object(self):
         return self.request.user
