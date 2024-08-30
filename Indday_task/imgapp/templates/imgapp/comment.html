@@ -1,15 +1,93 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% load static %}
+<link rel='stylesheet' href="{% static 'css/file.css' %}">
+{% block page_title %}{{ section_name }}{% endblock %}
+
+{% block content %}
+<style>
+    form {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        font-family: Arial, sans-serif;
+    }
+
+    form input[type="file"],
+    form input[type="text"],
+    form input[type="email"],
+    form input[type="password"],
+    form input[type="number"],
+    form select,
+    form textarea,
+    form button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+        box-sizing: border-box;
+        background-color: #fff; /* Ensure the background is white */
+    }
+
+    form select {
+        -webkit-appearance: none; /* Remove default styling in Safari */
+        -moz-appearance: none; /* Remove default styling in Firefox */
+        appearance: none; /* Remove default styling */
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23333' d='M2 0L0 2h4z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+        background-size: 8px 10px;
+        padding-right: 30px; /* Space for dropdown arrow */
+    }
+
+    form textarea {
+        resize: vertical;
+        min-height: 100px;
+    }
+
+    form button {
+        background-color: #28a745;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    form button:hover {
+        background-color: #218838;
+    }
+
+    form label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    form input[type="file"]:focus,
+    form input[type="text"]:focus,
+    form input[type="email"]:focus,
+    form input[type="password"]:focus,
+    form input[type="number"]:focus,
+    form select:focus,
+    form textarea:focus,
+    form button:focus {
+        outline: none;
+        border-color: #28a745;
+        box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+    }
+</style>
     <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{form}}
+        <center>
+        <h3><strong>Feel Free to Comment!!!</strong></h3> 
+        </center>
+        <br>
+        {{ form.as_p }}
         <button type="submit">Upload</button>
     </form>
-</body>
-</html>
+    {% endblock %}

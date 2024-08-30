@@ -5,11 +5,14 @@ from rest_framework.viewsets import ModelViewSet
 from rest_framework.exceptions import APIException
 from rest_framework.response import Response
 from rest_framework import status
- 
+from rest_framework import permissions # type: ignore
+from rest_framework_simplejwt.authentication import JWTAuthentication # type: ignore
 
 class CategoryViewset(ModelViewSet):
     queryset = categorymodel.objects.all()
     serializer_class = CategorySerializer
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [permissions.IsAuthenticated]
     def get_serializer_class(self):
                 if self.action == 'list':
                     return CategorySerializer

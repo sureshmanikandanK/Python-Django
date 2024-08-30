@@ -40,7 +40,8 @@ def second_page(request):
 
 def detail_page(request, slug):
     card = ImgAppDb.objects.filter(slug=slug).first()
-    return render(request, 'imgapp/detail.html', {'card': card})
+    comment=Comment.objects.filter(post_id=card.id)
+    return render(request, 'imgapp/detail.html', {'card': card,'comment':comment})
 
 
 def About_us(request):
@@ -60,3 +61,4 @@ class post_page_view(CreateView):
     template_name = "imgapp/forms.html"
     fields = ['card_title', 'image', 'card_description', 'author', 'tags']
     success_url ='Add_Cards'
+

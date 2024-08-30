@@ -10,15 +10,23 @@
               <div class="ratio ratio-16x9 mb-4">
                 <img src="{{ card.image.url }}" class="img-fluid" alt="Blog Image">
               </div>
-              <p>{{ card.card_description }}</p>
-              <p>{{ card.date }}</p>
-              <p>{{ card.time }}</p>
+              <p><strong>Description : </strong>{{ card.card_description }}</p>
+              <p><strong>Created Date : </strong>{{ card.date }}</p>
+              <p><strong>Created Time : </strong>{{ card.time }}</p>
               
             </div>
         </div>
+        <p><strong>Comments : </strong></p>
+        {% if comment %}
+          {% for com in comment %}
+                {{com.text}}
+          {% endfor %}
+        {% else %}
+        <p>No comments Yet</p>
+        {% endif %}
     </div>
   </center>
-<center>
-  <a href="{% url 'commentCreateView' %}">Comments</a>
-</center>
+  <center>
+    <a class="btn btn-danger" href="{% url 'commentCreateView' %}">Give Comments</a>
+  </center>
 {% endblock %}
